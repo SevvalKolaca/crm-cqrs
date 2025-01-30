@@ -32,7 +32,7 @@ public class Category {
 
     @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
-    private List<Category> categories;
+    private List<Category> subcategories;
 
     @OneToMany(mappedBy = "category")
     @JsonIgnore
