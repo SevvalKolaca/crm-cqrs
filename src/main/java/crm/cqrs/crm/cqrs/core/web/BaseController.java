@@ -1,6 +1,6 @@
 package crm.cqrs.crm.cqrs.core.web;
 
-import org.apache.catalina.Pipeline;
+import an.awesome.pipelinr.Pipeline;
 
 public class BaseController {
     protected final Pipeline pipeline;

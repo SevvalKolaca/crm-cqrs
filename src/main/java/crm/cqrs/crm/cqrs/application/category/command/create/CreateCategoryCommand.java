@@ -68,6 +68,13 @@ public class CreateCategoryCommand implements Command<CreatedCategoryResponse>
             Category category = new Category();
             category.setName(createCategoryCommand.getName());
             category.setIsActive(true);
+
+            if(createCategoryCommand.getParentId() != null){
+                Category parent = categoryRepository
+                        .findById(createCategoryCommand.getParentId())
+                        .orElseThrow(() -> new RuntimeException("Parent category Not Found"));
+                category.setParent(parent);
+            }
             categoryRepository.save(category);
 
             CreatedCategoryResponse createdCategoryResponse = new CreatedCategoryResponse(category.getId(), category.getName(), category.getParent(), category.getIsActive());
