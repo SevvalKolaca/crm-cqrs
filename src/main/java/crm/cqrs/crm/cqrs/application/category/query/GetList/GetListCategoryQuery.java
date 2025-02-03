@@ -14,11 +14,15 @@ public class GetListCategoryQuery implements Command<List<GetListCategoryItemDto
     // ...
 
     @Component
-    @RequiredArgsConstructor
+    //@RequiredArgsConstructor
     public static class GetListCategoryQueryHandler
             implements Command.Handler<GetListCategoryQuery, List<GetListCategoryItemDto>>
     {
         private final CategoryRepository categoryRepository;
+
+        public GetListCategoryQueryHandler(CategoryRepository categoryRepository) {
+            this.categoryRepository = categoryRepository;
+        }
 
         @Override public List<GetListCategoryItemDto> handle(GetListCategoryQuery getListCategoryQuery)
         {
