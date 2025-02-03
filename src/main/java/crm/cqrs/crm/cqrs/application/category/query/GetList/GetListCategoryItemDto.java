@@ -10,15 +10,16 @@ import java.util.List;
 //@AllArgsConstructor
 @NoArgsConstructor
 public class GetListCategoryItemDto {
-    public GetListCategoryItemDto(Integer id, String name, List<GetListCategoryItemDto> subcategories) {
-        this.id = id;
-        this.name = name;
-        this.subcategories = subcategories;
-    }
 
     private Integer id;
     private String name;
     private List<GetListCategoryItemDto> subcategories;
+
+    public GetListCategoryItemDto( Integer id, String name,  List<GetListCategoryItemDto> subcategories) {
+        this.subcategories = subcategories;
+        this.name = name;
+        this.id = id;
+    }
 
     public Integer getId() {
         return id;

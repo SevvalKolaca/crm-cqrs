@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class GetListCategoryQuery implements Command<List<GetListCategoryItemDto>> {
 
-    // ...
+    // ... veri almayacağımız icin bos
 
     @Component
     //@RequiredArgsConstructor
@@ -28,7 +28,9 @@ public class GetListCategoryQuery implements Command<List<GetListCategoryItemDto
         {
             List<Category> categories = categoryRepository.findAll();
 
-            List<GetListCategoryItemDto> categoryDtos = categories
+            List<Category> rootCategories = categoryRepository.findByParentId(null); // parent id == null, root kategori demek
+
+            List<GetListCategoryItemDto> categoryDtos = rootCategories
                     .stream()
                     .map(this::convertToListCategoryItemDto)
                     .collect(Collectors.toList());
@@ -41,7 +43,10 @@ public class GetListCategoryQuery implements Command<List<GetListCategoryItemDto
         {
             List<GetListCategoryItemDto> subcategories = categoryRepository.findAllByParentId(category.getId())
                     .stream()
-                    .map(subcategory -> new GetListCategoryItemDto(subcategory.getId(), subcategory.getName(), null))
+                    .map(subcategory -> new GetListCategoryItemDto(
+                            subcategory.getId(),
+                            subcategory.getName(),
+                            null))
                     .collect(Collectors.toList());
 
             return new GetListCategoryItemDto(

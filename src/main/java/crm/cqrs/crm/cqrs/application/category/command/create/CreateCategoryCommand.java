@@ -3,6 +3,7 @@ package crm.cqrs.crm.cqrs.application.category.command.create;
 import an.awesome.pipelinr.Command;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import crm.cqrs.crm.cqrs.core.pipelines.auth.AuthenticatedRequest;
 import crm.cqrs.crm.cqrs.domain.entity.Category;
 import crm.cqrs.crm.cqrs.persistance.category.CategoryRepository;
 import jakarta.validation.constraints.NotBlank;
@@ -41,13 +42,6 @@ public class CreateCategoryCommand implements Command<CreatedCategoryResponse>
         this.subcategories = subcategories;
     }
 
-    public Boolean getActive() {
-        return isActive;
-    }
-
-    public void setActive(Boolean active) {
-        isActive = active;
-    }
 
     public Integer getParentId() {
         return parentId;
@@ -55,6 +49,14 @@ public class CreateCategoryCommand implements Command<CreatedCategoryResponse>
 
     public void setParentId(Integer parentId) {
         this.parentId = parentId;
+    }
+
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Boolean active) {
+        isActive = active;
     }
 
     @Component

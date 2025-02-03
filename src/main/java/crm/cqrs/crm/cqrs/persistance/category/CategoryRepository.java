@@ -12,6 +12,7 @@ import java.util.UUID;
 public interface CategoryRepository extends JpaRepository<Category, Integer> {
     List<Category> findAllByIsActiveTrue();
     Optional<Category> findByName(String name);
+    List<Category> findByParentId(Integer parentId);
 
     /* Subcategory icin islemler */
     // Belirli bir parent ID'ye bağlı tüm alt kategorileri bul
@@ -28,4 +29,5 @@ public interface CategoryRepository extends JpaRepository<Category, Integer> {
 
     // Sadece aktif olan kategorileri bul
     List<Category> findByIsActive(Boolean isActive);
+
 }

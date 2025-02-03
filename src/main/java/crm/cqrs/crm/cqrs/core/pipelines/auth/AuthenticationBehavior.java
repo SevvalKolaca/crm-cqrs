@@ -15,15 +15,14 @@ public class AuthenticationBehavior implements Command.Middleware{
     public <R, C extends Command<R>> R invoke(C c, Next<R> next) {
         // command çalışmadan önce...
 
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if(auth == null || !auth.isAuthenticated())
-            throw new RuntimeException("Authentication required");
-        System.out.println("BEFORE: Authentication behavior invoked");
-        var response = next.invoke();
+         if(c instanceof AuthenticatedRequest)
+         {
+             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+             if(auth == null || !auth.isAuthenticated())
+                 throw new RuntimeException("Authentication required");
 
-
-        System.out.println("AFTER: Authentication behavior invoked");
+         }
         //command çalıştıktan sonra.
-        return response;
+        return  next.invoke();
     }
 }
