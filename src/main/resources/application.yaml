@@ -2,7 +2,7 @@ spring:
   application:
     name: crm-cqrs
   datasource:
-    url: "jdbc:postgresql://localhost:5432/e-commerce"
+    url: "jdbc:postgresql://localhost:5432/e-commerce-cqrs"
     username: postgres
     password: test
   jpa:

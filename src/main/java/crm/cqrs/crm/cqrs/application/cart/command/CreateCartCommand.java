@@ -19,7 +19,7 @@ public class CreateCartCommand implements Command<CreatedCartResponse> {
     private BigDecimal totalPrice;
 
     @Component
-    @RequiredArgsConstructor
+    //@RequiredArgsConstructor
     public static class CreateCartCommandHandler
             implements Command.Handler<CreateCartCommand, CreatedCartResponse>
     {

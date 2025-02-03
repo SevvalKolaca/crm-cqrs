@@ -75,7 +75,7 @@ public class CreateUserCommand implements Command<CreatedUserResponse> {
         @Override
         public CreatedUserResponse handle(CreateUserCommand createUserCommand){
             User user = userMapper.mapFromCreateUserCommand(createUserCommand);
-
+            user.setIsActive(true);
             userRepository.save(user);
             return userMapper.mapCreatedResponseFromUser(user);
         }
