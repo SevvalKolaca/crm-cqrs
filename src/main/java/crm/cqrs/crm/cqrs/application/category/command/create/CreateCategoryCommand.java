@@ -58,10 +58,14 @@ public class CreateCategoryCommand implements Command<CreatedCategoryResponse>
     }
 
     @Component
-    @RequiredArgsConstructor
+    //@RequiredArgsConstructor
     public static class CreateCategoryCommandHandler implements Command.Handler<CreateCategoryCommand, CreatedCategoryResponse>{
 
         private final CategoryRepository categoryRepository;
+
+        public CreateCategoryCommandHandler(CategoryRepository categoryRepository) {
+            this.categoryRepository = categoryRepository;
+        }
 
         @Override
         public CreatedCategoryResponse handle(CreateCategoryCommand createCategoryCommand){

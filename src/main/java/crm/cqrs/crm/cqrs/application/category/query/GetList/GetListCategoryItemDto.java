@@ -7,9 +7,14 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 
-@AllArgsConstructor
+//@AllArgsConstructor
 @NoArgsConstructor
 public class GetListCategoryItemDto {
+    public GetListCategoryItemDto(Integer id, String name, List<GetListCategoryItemDto> subcategories) {
+        this.id = id;
+        this.name = name;
+        this.subcategories = subcategories;
+    }
 
     private Integer id;
     private String name;

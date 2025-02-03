@@ -5,6 +5,7 @@ import crm.cqrs.crm.cqrs.application.cart.mapper.CartMapper;
 import crm.cqrs.crm.cqrs.domain.entity.Cart;
 import crm.cqrs.crm.cqrs.persistance.cart.CartRepository;
 import lombok.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -23,6 +24,11 @@ public class CreateCartCommand implements Command<CreatedCartResponse> {
             implements Command.Handler<CreateCartCommand, CreatedCartResponse>
     {
         private final CartRepository cartRepository;
+
+        public CreateCartCommandHandler(CartRepository cartRepository) {
+            this.cartRepository = cartRepository;
+        }
+
         @Override
         public CreatedCartResponse handle(CreateCartCommand createCartCommand) {
             CartMapper cartMapper = CartMapper.INSTANCE;
