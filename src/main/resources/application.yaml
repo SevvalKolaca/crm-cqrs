@@ -13,7 +13,7 @@ spring:
     hibernate:
       ddlAuto: update
 server:
-  port: 8080
+  port: 9080
 
 jwt:
   expiration: 600000

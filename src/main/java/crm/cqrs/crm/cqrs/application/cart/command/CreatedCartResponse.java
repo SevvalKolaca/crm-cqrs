@@ -11,7 +11,7 @@ public class CreatedCartResponse {
 
     private UUID id;
 
-  //  private User user;
+  //  private User user; //TODO: user ekleendikten sonra bu kısım yorumdan çıkarılacak
 
 
     private BigDecimal totalPrice;
