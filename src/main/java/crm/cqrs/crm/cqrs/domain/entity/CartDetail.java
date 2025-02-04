@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
@@ -18,11 +19,11 @@ public class CartDetail {
 
     @Id
     @Column(name = "cart_id", insertable = false, updatable = false)
-    private Integer cartId;
+    private UUID cartId;
 
     @Id
     @Column(name = "product_id", insertable = false, updatable = false)
-    private Integer productId;
+    private UUID productId;
 
     @ManyToOne
     @JoinColumn(name = "cart_id", referencedColumnName = "id", insertable = false, updatable = false)
