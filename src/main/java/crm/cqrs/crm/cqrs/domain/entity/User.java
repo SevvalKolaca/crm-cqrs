@@ -14,6 +14,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "dtype", discriminatorType = DiscriminatorType.STRING)
 @Table(name = "users")
 public class User {
 
@@ -34,11 +36,11 @@ public class User {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @OneToOne(mappedBy = "user")
-    private Cart cart;
+//    @OneToOne(mappedBy = "user")
+//    private Cart cart;
 
-    @OneToMany(mappedBy = "user")
-    private List<Order> orders;
+//    @OneToMany(mappedBy = "user")
+//    private List<Order> orders;
 
     @Column(name = "is_active", nullable = false)
     private Boolean isActive;
