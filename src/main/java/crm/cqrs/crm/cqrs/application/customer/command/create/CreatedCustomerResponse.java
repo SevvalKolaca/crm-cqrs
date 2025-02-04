@@ -1,4 +1,4 @@
-package crm.cqrs.crm.cqrs.application.user.command.create;
+package crm.cqrs.crm.cqrs.application.customer.command.create;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +12,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Getter
 @Setter
-public class CreatedUserResponse {
+public class CreatedCustomerResponse {
 
     private UUID id;
     private String firstName;

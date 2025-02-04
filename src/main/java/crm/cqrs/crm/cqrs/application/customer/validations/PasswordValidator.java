@@ -1,4 +1,4 @@
-package crm.cqrs.crm.cqrs.application.user.validations;
+package crm.cqrs.crm.cqrs.application.customer.validations;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;

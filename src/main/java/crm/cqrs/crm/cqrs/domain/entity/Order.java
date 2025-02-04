@@ -25,8 +25,8 @@ public class Order {
 
     @ManyToOne
     @NotNull(message = "User cannot be null!")
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @JoinColumn(name = "customer_no", nullable = false)
+    private Customer customer;
 
     @Column(name = "total_price")
     private BigDecimal totalPrice;
